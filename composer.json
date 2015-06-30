@@ -21,8 +21,8 @@
 	},
 	"autoload-dev": {
 		"psr-4": {
-			"pxn\\phpUtils\\tests\\":    "tests/",
-			"pxn\\phpUtils\\examples\\": "examples/"
+			"pxn\\xLemp\\tests\\":    "tests/",
+			"pxn\\xLemp\\examples\\": "examples/"
 		}
 	},
 	"archive": {
