@@ -4,8 +4,58 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "97968511df1412cb6aa029e66d66b490",
+    "hash": "cd6771a3270c334a92b00cf94cd65cc3",
     "packages": [
+        {
+            "name": "christiaan/stream-process",
+            "version": "1.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/christiaan/stream-process.git",
+                "reference": "31655314d525e3bc62f649c1aa4c252159f0fa9c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/christiaan/stream-process/zipball/31655314d525e3bc62f649c1aa4c252159f0fa9c",
+                "reference": "31655314d525e3bc62f649c1aa4c252159f0fa9c",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">= 5.3.2"
+            },
+            "require-dev": {
+                "mkraemer/react-pcntl": "dev-master",
+                "react/event-loop": "*"
+            },
+            "suggest": {
+                "react/event-loop": "Allows easier working with streams and waiting till data is available"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Christiaan\\StreamProcess": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Christiaan Baartse",
+                    "email": "anotherhero@gmail.com"
+                }
+            ],
+            "description": "Wrapper around proc_open to ease communication via streams between processes",
+            "keywords": [
+                "event-loop",
+                "proc_open",
+                "process",
+                "react",
+                "stream"
+            ],
+            "time": "2013-03-27 10:04:04"
+        },
         {
             "name": "pxn/phputils",
             "version": "0.1.2",
@@ -45,6 +95,49 @@
             "description": "PHP Utils for PoiXson projects",
             "homepage": "http://poixson.com/",
             "time": "2015-06-25 21:13:30"
+        },
+        {
+            "name": "react/event-loop",
+            "version": "v0.4.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/reactphp/event-loop.git",
+                "reference": "18c5297087ca01de85518e2b55078f444144aa1b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/reactphp/event-loop/zipball/18c5297087ca01de85518e2b55078f444144aa1b",
+                "reference": "18c5297087ca01de85518e2b55078f444144aa1b",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.4.0"
+            },
+            "suggest": {
+                "ext-event": "~1.0",
+                "ext-libev": "*",
+                "ext-libevent": ">=0.1.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "0.4-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "React\\EventLoop\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "Event loop abstraction layer that libraries can use for evented I/O.",
+            "keywords": [
+                "event-loop"
+            ],
+            "time": "2014-02-26 17:36:58"
         },
         {
             "name": "symfony/console",
