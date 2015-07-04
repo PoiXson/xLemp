@@ -6,7 +6,7 @@
 	<name>xLemp</name>
 	<groupId>com.poixson.xlemp</groupId>
 	<artifactId>xLemp</artifactId>
-	<version>0.1.x</version>
+	<version>0.1.0.x</version>
 	<packaging>pom</packaging>
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
