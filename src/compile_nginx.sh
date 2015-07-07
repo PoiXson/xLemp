@@ -83,7 +83,8 @@ pushd /usr/local/src/nginx/
 	make         || exit 1
 	make install || exit 1
 popd
-ln -sfT "/usr/local/nginx-${RELEASE}/" /usr/local/nginx \
+ln -sf "/usr/local/nginx-${RELEASE}/sbin/nginx" /usr/local/sbin/nginx \
 	|| exit 1
+ls -l /usr/local/sbin/nginx
 
 title "Nginx ${RELEASE} Successfully Installed!"
