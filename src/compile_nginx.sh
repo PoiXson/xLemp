@@ -5,6 +5,9 @@ source /usr/bin/shellscripts/common.sh
 
 
 title 'Compiling Nginx..'
+if [ "$(id -u)" != "0" ]; then
+	errcho 'This script must be run as root'
+fi
 
 
 # install mercurial if needed
