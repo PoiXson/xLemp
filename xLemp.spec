@@ -124,6 +124,32 @@ EOF
 	"${RPM_BUILD_ROOT}%{prefix}/" \
 		|| exit 1
 
+# create nginx.service for systemd
+%{__install} -d -m 0755 "${RPM_BUILD_ROOT}%{_unitdir}/" \
+	|| exit 1
+%{__cat} <<EOF >"${RPM_BUILD_ROOT}%{_unitdir}/nginx.service" \
+	|| exit 1
+[Unit]
+Description=The nginx HTTP and reverse proxy server
+After=syslog.target network.target remote-fs.target nss-lookup.target
+
+[Service]
+Type=forking
+PIDFile=/run/nginx.pid
+ExecStartPre=/usr/local/sbin/nginx -t
+ExecStart=/usr/local/sbin/nginx
+ExecReload=/bin/kill -s HUP $MAINPID
+ExecStop=/bin/kill -s QUIT $MAINPID
+TimeoutStopSec=5
+KillMode=mixed
+PrivateTmp=true
+
+[Install]
+WantedBy=multi-user.target
+EOF
+%{__chmod} 0644 "${RPM_BUILD_ROOT}%{_unitdir}/nginx.service" \
+	|| exit 1
+
 
 
 %clean
@@ -159,6 +185,9 @@ popd
 # /usr/bin
 "/usr/bin/xlemp-cli"
 "%{prefix}/%{name}-%{version}.tar.gz"
+
+# /usr/lib/systemd/system/
+%{_unitdir}/nginx.service
 
 # /etc/skel
 %attr(-, root, root) %dir "%{_sysconfdir}/skel/public_html/"
