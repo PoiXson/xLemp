@@ -69,6 +69,13 @@ pushd /usr/local/src/nginx/
 		--pid-path=/run/nginx.pid \
 		--lock-path=/var/lock/nginx.lock \
 		--http-log-path=/var/log/access.log \
+		--http-client-body-temp-path=/var/lib/nginx/tmp/client_body/ \
+		--http-proxy-temp-path=/var/lib/nginx/tmp/proxy/ \
+		--http-fastcgi-temp-path=/var/lib/nginx/tmp/fastcgi/ \
+		--http-uwsgi-temp-path=/var/lib/nginx/tmp/uwsgi/ \
+		--http-scgi-temp-path=/var/lib/nginx/tmp/scgi/ \
+		--user=nginx \
+		--group=nginx \
 		--without-http_ssi_module \
 		--with-http_ssl_module \
 		--with-http_stub_status_module \
