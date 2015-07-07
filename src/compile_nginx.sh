@@ -13,24 +13,19 @@ if [ ! -f /usr/bin/hg ]; then
 fi
 # clone repo
 if [ -d /usr/local/src/nginx/ ]; then
-	echo -n 'cd> '
 	pushd /usr/local/src/nginx/
 		hg update --clean \
 			|| exit 1
-	echo -n 'cd< '
 	popd
 else
-	echo -n 'cd> '
 	pushd /usr/local/src/
 		hg clone http://hg.nginx.org/nginx/ \
 			|| exit 1
-	echo -n 'cd< '
 	popd
 fi
 
 
 # find nginx version
-echo -n 'cd> '
 pushd /usr/local/src/nginx/
 	RELEASE=`hg tags | grep release-1.8. | head -n1 | awk -F' ' '{print $1}' | awk -F'-' '{print $2}'`
 	if [ -z $RELEASE ]; then
@@ -40,7 +35,6 @@ pushd /usr/local/src/nginx/
 	title "Nginx Version ${RELEASE}"
 	hg update "release-${RELEASE}" \
 		|| exit 1
-echo -n 'cd< '
 popd
 
 
@@ -64,7 +58,6 @@ fi
 
 
 # compile
-echo -n 'cd> '
 pushd /usr/local/src/nginx/
 	./auto/configure \
 		--prefix=/usr/local/nginx-${RELEASE} \
@@ -79,7 +72,6 @@ pushd /usr/local/src/nginx/
 			|| exit 1
 	make         || exit 1
 	make install || exit 1
-echo -n 'cd< '
 popd
 ln -sfT "/usr/local/nginx-${RELEASE}/" /usr/local/nginx \
 	|| exit 1
