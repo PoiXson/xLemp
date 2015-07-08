@@ -15,7 +15,6 @@ Requires        : php56w-pdo
 Requires        : php56w-xml
 Requires        : php56w-pear
 Requires        : php56w-pecl-xdebug
-Requires        : nginx >= 1.6.3
 Requires        : bash
 Requires        : wget
 Requires        : zip
