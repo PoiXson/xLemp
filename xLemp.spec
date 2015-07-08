@@ -97,7 +97,7 @@ echo "Install.."
 		|| exit 1
 # www/ -> public_html/ alias
 pushd "${RPM_BUILD_ROOT}%{_sysconfdir}/skel/"
-	ln -sf public_html/ www
+	ln -sfT public_html/ www
 popd
 
 # xlemp-cli command alias
