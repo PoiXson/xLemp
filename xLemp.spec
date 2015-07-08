@@ -50,10 +50,18 @@ else
 			exit 1
 		}
 	fi
-	sudo -n adduser --system --shell /sbin/nologin \
-		--home-dir "/home/%{USERNAME}" \
+	sudo -n adduser --system \
+		--shell /sbin/nologin \
+		--home-dir "/home/%{USERNAME}/" \
 		-g "%{USERNAME}" "%{USERNAME}" || {
-			echo "Failed to create user!"
+			echo -e "\n\n
+Failed to create user!\n====================
+
+Run this:
+  sudo groupadd --system "%{USERNAME}"
+  sudo adduser --system --shell /sbin/nologin \
+--home-dir "/home/%{USERNAME}/" -g "%{USERNAME}" "%{USERNAME}"
+\n====================\n\n";
 			exit 1
 	}
 	if getent passwd "%{USERNAME}" >/dev/null 2>&1 ; then
