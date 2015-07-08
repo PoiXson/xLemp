@@ -32,7 +32,7 @@ fi
 pushd /usr/local/src/nginx/
 	RELEASE=`hg tags | grep release-1.8. | head -n1 | awk -F' ' '{print $1}' | awk -F'-' '{print $2}'`
 	if [ -z $RELEASE ]; then
-		echo 'Failed to find latest version!'
+		errcho 'Failed to find latest version!'
 		exit 1
 	fi
 	title "Nginx Version ${RELEASE}"
@@ -42,8 +42,6 @@ popd
 
 
 ### prerequisites
-
-
 # pcre
 if [ ! -f /usr/include/pcre.h ]; then
 	yum install -y pcre pcre-devel || exit 1
@@ -52,9 +50,11 @@ fi
 if [ ! -f /usr/include/zlib.h ]; then
 	yum install -y zlib zlib-devel || exit 1
 fi
+# ssl
 if [ ! -f /usr/include/openssl/ssl3.h ]; then
 	yum install -y openssl openssl-devel || exit 1
 fi
+# gcc/make
 if [ ! -f /usr/bin/gcc ]; then
 	yum groupinstall -y 'Development Tools' || exit 1
 fi

@@ -3,7 +3,8 @@ Summary         : Management system for LEMP web servers (Linux / Nginx / MySQL 
 Version         : 0.1.0.%{BUILD_NUMBER}
 Release         : 1
 BuildArch       : noarch
-Requires        : shellscripts
+Requires        : shellscripts >= 1.4.3
+Requires        : php-tools
 Requires        : php56w
 Requires        : php56w-fpm
 Requires        : php56w-cli
@@ -14,7 +15,6 @@ Requires        : php56w-pdo
 Requires        : php56w-xml
 Requires        : php56w-pear
 Requires        : php56w-pecl-xdebug
-Requires        : php-composer
 Requires        : nginx >= 1.6.3
 Requires        : bash
 Requires        : wget
@@ -109,9 +109,8 @@ popd
 require('/usr/bin/xLemp/src/cli.php');
 
 EOF
-%{__chmod} 0555 \
-	"${RPM_BUILD_ROOT}%{_bindir}/xlemp-cli" \
-		|| exit 1
+%{__chmod} 0555 "${RPM_BUILD_ROOT}%{_bindir}/xlemp-cli" \
+	|| exit 1
 
 # /home/xlemp
 %{__install} -d \
@@ -182,7 +181,7 @@ popd
 # /home/xlemp
 %attr(700, %{USERNAME}, %{USERNAME}) /home/%{USERNAME}/
 
-# /usr/bin
+# /usr/bin/
 "/usr/bin/xlemp-cli"
 "%{prefix}/%{name}-%{version}.tar.gz"
 
