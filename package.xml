@@ -16,6 +16,7 @@
 				<exclude>**/target/</exclude>
 				<exclude>**/rpmbuild-root/</exclude>
 				<exclude>**/coverage/</exclude>
+				<exclude>**/tests</exclude>
 				<exclude>/xbuild.conf</exclude>
 				<exclude>/phpunit.xml</exclude>
 				<exclude>**/nbproject/*</exclude>
